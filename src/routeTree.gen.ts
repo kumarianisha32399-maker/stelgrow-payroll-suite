@@ -23,6 +23,7 @@ import { Route as AdminPayrollRouteImport } from './routes/admin.payroll'
 import { Route as AdminPayslipsRouteImport } from './routes/admin.payslips'
 import { Route as AdminSalaryComponentsRouteImport } from './routes/admin.salary-components'
 import { Route as AdminSalaryStructureRouteImport } from './routes/admin.salary-structure'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminReportsAttendanceRouteImport } from './routes/admin.reports.attendance'
 import { Route as AdminReportsPayrollRouteImport } from './routes/admin.reports.payroll'
 import { Route as AdminReportsSalaryRouteImport } from './routes/admin.reports.salary'
@@ -97,6 +98,11 @@ const AdminSalaryStructureRoute = AdminSalaryStructureRouteImport.update({
   path: '/admin/salary-structure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminReportsAttendanceRoute = AdminReportsAttendanceRouteImport.update({
   id: '/admin/reports/attendance',
   path: '/admin/reports/attendance',
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/admin/payslips': typeof AdminPayslipsRoute
   '/admin/salary-components': typeof AdminSalaryComponentsRoute
   '/admin/salary-structure': typeof AdminSalaryStructureRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/reports/attendance': typeof AdminReportsAttendanceRoute
   '/admin/reports/payroll': typeof AdminReportsPayrollRoute
   '/admin/reports/salary': typeof AdminReportsSalaryRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/admin/payslips': typeof AdminPayslipsRoute
   '/admin/salary-components': typeof AdminSalaryComponentsRoute
   '/admin/salary-structure': typeof AdminSalaryStructureRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/reports/attendance': typeof AdminReportsAttendanceRoute
   '/admin/reports/payroll': typeof AdminReportsPayrollRoute
   '/admin/reports/salary': typeof AdminReportsSalaryRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/admin/payslips': typeof AdminPayslipsRoute
   '/admin/salary-components': typeof AdminSalaryComponentsRoute
   '/admin/salary-structure': typeof AdminSalaryStructureRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/reports/attendance': typeof AdminReportsAttendanceRoute
   '/admin/reports/payroll': typeof AdminReportsPayrollRoute
   '/admin/reports/salary': typeof AdminReportsSalaryRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/admin/payslips'
     | '/admin/salary-components'
     | '/admin/salary-structure'
+    | '/admin/settings'
     | '/admin/reports/attendance'
     | '/admin/reports/payroll'
     | '/admin/reports/salary'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/admin/payslips'
     | '/admin/salary-components'
     | '/admin/salary-structure'
+    | '/admin/settings'
     | '/admin/reports/attendance'
     | '/admin/reports/payroll'
     | '/admin/reports/salary'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/admin/payslips'
     | '/admin/salary-components'
     | '/admin/salary-structure'
+    | '/admin/settings'
     | '/admin/reports/attendance'
     | '/admin/reports/payroll'
     | '/admin/reports/salary'
@@ -246,6 +258,7 @@ export interface RootRouteChildren {
   AdminPayslipsRoute: typeof AdminPayslipsRoute
   AdminSalaryComponentsRoute: typeof AdminSalaryComponentsRoute
   AdminSalaryStructureRoute: typeof AdminSalaryStructureRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
   AdminReportsAttendanceRoute: typeof AdminReportsAttendanceRoute
   AdminReportsPayrollRoute: typeof AdminReportsPayrollRoute
   AdminReportsSalaryRoute: typeof AdminReportsSalaryRoute
@@ -351,6 +364,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSalaryStructureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/reports/attendance': {
       id: '/admin/reports/attendance'
       path: '/admin/reports/attendance'
@@ -390,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminPayslipsRoute: AdminPayslipsRoute,
   AdminSalaryComponentsRoute: AdminSalaryComponentsRoute,
   AdminSalaryStructureRoute: AdminSalaryStructureRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
   AdminReportsAttendanceRoute: AdminReportsAttendanceRoute,
   AdminReportsPayrollRoute: AdminReportsPayrollRoute,
   AdminReportsSalaryRoute: AdminReportsSalaryRoute,
