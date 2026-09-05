@@ -12,7 +12,6 @@ import {
   Field,
   Input,
   PageHeader,
-  PageHeader as _PH,
   SectionTitle,
   Select,
   StatCard,
@@ -26,7 +25,6 @@ import {
   MONTHS,
 } from "@/data/mock";
 
-void _PH;
 
 export const Route = createFileRoute("/admin/reports/attendance")({
   head: () => ({
